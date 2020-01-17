@@ -4,6 +4,9 @@ const express = require('express');
 // I need the projects router here now
 const router = require('../projectRoute/router.js')
 
+// I need actions router here
+const actionRouter = require('../actionsRouter/router.js')
+
 // setting up a variable to use express invoked
 const server = express();
 
@@ -12,6 +15,9 @@ server.use(express.json());
 
 // I need to provide the path here
 server.use("/api/projects", router);
+
+// I need to provide the action path here
+server.use("/api/actions", actionRouter);
 
 // checking if server is listening
 server.get('/', (req, res) =>{
