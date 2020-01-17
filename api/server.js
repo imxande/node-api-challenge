@@ -1,11 +1,17 @@
 // import express to make API 
 const express = require('express');
 
+// I need the projects router here now
+const router = require('../projectRoute/router.js')
+
 // setting up a variable to use express invoked
 const server = express();
 
 // teaching express how to handle json
 server.use(express.json());
+
+// I need to provide the path here
+server.use("/api/projects", router);
 
 // checking if server is listening
 server.get('/', (req, res) =>{
