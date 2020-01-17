@@ -8,7 +8,7 @@ const server = express();
 server.use(express.json());
 
 // checking if server is listening
-server.use('/', (req, res) =>{
+server.get('/', (req, res) =>{
     res.send(`<h1> Any body home? </h1>`)
 })
 
