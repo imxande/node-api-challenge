@@ -73,7 +73,24 @@ router.put("/:id", (req, res) =>{
         })
         .catch(error =>{
             console.log(error)
-            res.status(500).json("There is an error in the server while trying to update")
+            res.status(500).json("There is an error in the server while trying to update the project")
+        })
+})
+
+// need to delete project here
+router.delete("/:id", (req,res) =>{
+     // I need to check if we have the id firts
+     if(!req.params.id){
+        // if no id then return a 404
+        return res.status(404).json({errorMessage:"Project with such ID does not exist"})
+    }
+    ProjectDataBase.remove(req.params.id)
+        .then(response =>{
+            return res.status(200).json({message : "Project deleted"})
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).json("There is an error in the server while trying to delete the project")
         })
 })
 
