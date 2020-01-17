@@ -12,3 +12,11 @@ I need this code, but don't know where, perhaps should make some middleware, don
 
 Go code!
 */
+
+// adding server here from the api/server.js path
+const server = require("./api/server.js");
+
+// ok now meke it listen
+server.listen(8000, () => {
+    console.log('Server running on http://localhost:8000')
+})
