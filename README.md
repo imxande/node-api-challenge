@@ -48,6 +48,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [x] How can we partition our application into sub-applications?
 
+- Note: I answered the questions on the Self-Study/Answers file(folder Self-Study, file Answers.md)
+
 ## Minimum Viable Product
 
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
