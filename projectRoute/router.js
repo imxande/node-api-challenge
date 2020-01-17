@@ -50,5 +50,32 @@ router.post("/", (req, res) =>{
     })
 })
 
+// now i want to update the project
+router.put("/:id", (req, res) =>{
+    // I need to check if we have the id firts
+    if(!req.params.id){
+        // if no id then return a 404
+        return res.status(404).json({errorMessage:"Project with such ID does not exist"})
+    }
+
+    else if(!req.body.name || !req.body.description){
+        // return a bad request
+        return res.status(400).json({
+            errorMessage: "Please provide name and description for new a project"
+        })
+    }
+
+    // im going to use update function provided to update the project
+    ProjectDataBase.update(req.params.id, req.body)
+        .then(response =>{
+            // return successful status if it works 
+            return res.status(200).json(response)
+        })
+        .catch(error =>{
+            console.log(error)
+            res.status(500).json("There is an error in the server while trying to update")
+        })
+})
+
 // we need to export router (dont forget the s for exports)
 module.exports = router;
