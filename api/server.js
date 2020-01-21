@@ -1,4 +1,4 @@
-// import express to make API 
+// import express to make API
 const express = require('express');
 
 // I need the projects router here now
@@ -20,7 +20,7 @@ server.use("/api/projects", router);
 server.use("/api/actions", actionRouter);
 
 // checking if server is listening
-server.get('/', (req, res) =>{
+server.get('/', (req, res) => {
     res.send(`<h1> Any body home? </h1> <p>Ok server is running now</p>`)
 })
 
