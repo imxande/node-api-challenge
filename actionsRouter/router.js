@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
 
     // Using get function from the data base to get all Actions
     ActionDataBase.get()
-    .then(response=> {
+    .then(response => {
         res.status(200).json(response);
     })
     .catch(err => {
@@ -28,11 +28,10 @@ router.get("/", (req, res) => {
     });
 });
 
-
 // to create a new Action
 router.post("/:id", (req, res) =>{
 
-     // I need to check if we have the id firts
+     // I need to check if we have the id first
      if(!req.params.id){
         // if no id then return a 404
         return res.status(404).json({errorMessage:"Action with such ID does not exist"})
@@ -65,7 +64,7 @@ router.put("/:id", (req, res) =>{
         return res.status(404).json({errorMessage:"Action with such ID does not exist"})
     }
 
-    else if(!req.body.name || !req.body.description){
+    else if(!req.body.description || !req.body.notes){
         // return a bad request
         return res.status(400).json({
             errorMessage: "Please provide name and description for new a Action"
