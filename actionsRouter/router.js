@@ -67,7 +67,7 @@ router.put("/:id", (req, res) =>{
     else if(!req.body.description || !req.body.notes){
         // return a bad request
         return res.status(400).json({
-            errorMessage: "Please provide name and description for new a Action"
+            errorMessage: "Please provide notes and description for new a Action"
         })
     }
 
