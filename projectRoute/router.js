@@ -94,5 +94,28 @@ router.delete("/:id", (req,res) =>{
         })
 })
 
+// get project actions here 
+router.get("/:id/actions", (req, res) => {
+
+    ProjectDataBase.getProjectActions(req.params.id)
+    .then(response => {
+        if (!req.params.id) {
+             // if no id return a 404
+            return res.status(404).json({notice: "No project matches the specified ID "})
+         } 
+        else {
+            // if everything is good then return a successful code status, and the response
+           return  res.status(200).json(response);
+        }
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: "The actions information could not be found"
+        })
+    })
+})
+  
 // we need to export router (dont forget the s for exports)
 module.exports = router;
+
